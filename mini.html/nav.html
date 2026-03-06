@@ -1,0 +1,108 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>RFID Attendance System</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="../style.css/nav.css">
+</head>
+
+<body>
+
+
+<!-- TOPBAR -->
+
+<div class="topbar">
+
+<div class="rfid-btn" onclick="toggleSidebar()">
+
+<img src="https://cdn-icons-png.flaticon.com/512/891/891419.png">
+
+<span>RFID</span>
+
+</div>
+
+</div>
+
+
+
+<!-- SIDEBAR -->
+
+<div class="sidebar" id="sidebar">
+
+<div class="sidebar-header">
+
+<h2>RFID Panel</h2>
+
+<span class="close-btn" onclick="toggleSidebar()">✕</span>
+
+</div>
+
+
+<!-- SEARCH -->
+
+<div class="search">
+
+<input type="text" id="searchInput" placeholder="Search menu..." onkeyup="filterLinks()">
+
+</div>
+
+
+<!-- NAV LINKS -->
+
+<div class="nav-links">
+
+<a href="#" class="active">🏠 Dashboard</a>
+
+<a href="#">👤 User Dashboard</a>
+
+<a href="#">🛠 Admin Dashboard</a>
+
+<a href="#">👥 User Management</a>
+
+<a href="#">📦 Resource Admin</a>
+
+<a href="#">⚙ System Config</a>
+
+<a href="#">📊 Reports & Export</a>
+
+<a href="#">🔔 Notifications <span class="badge">3</span></a>
+
+<a href="#">🧾 Audit Logs</a>
+
+</div>
+
+
+<!-- PROFILE -->
+
+<div class="profile">
+
+<img src="https://i.pravatar.cc/100">
+
+<div class="profile-info">
+
+<div>Admin</div>
+<div style="font-size:13px;opacity:0.7;">System Manager</div>
+
+</div>
+
+</div>
+
+
+<button class="toggle" onclick="toggleTheme()">Toggle Theme</button>
+
+</div>
+
+
+
+<!-- PAGE CONTENT -->
+
+
+
+<script src="../mini.js/nav.js"></script>
+
+</body>
+</html>

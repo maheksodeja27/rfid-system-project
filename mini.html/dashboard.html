@@ -11,10 +11,28 @@
   <!-- CSS -->
   <link rel="stylesheet" href="../style.css/dashboard.css">
   <link rel="stylesheet" href="../style.css/footer.css">
+  <link rel="stylesheet" href="../style.css/nav.css">
 
 </head>
 
 <body>
+
+<!-- Include Navigation -->
+<div id="nav-container"></div>
+
+<!-- Load Navigation -->
+<script>
+  fetch('nav.html')
+    .then(response => response.text())
+    .then(html => {
+      document.getElementById('nav-container').innerHTML = html;
+      // Load nav.js after content is inserted
+      const script = document.createElement('script');
+      script.src = '../mini.js/nav.js';
+      document.body.appendChild(script);
+    })
+    .catch(error => console.error('Error loading navigation:', error));
+</script>
 
 <!-- ADMIN ACCESS CHECK -->
 <script>
@@ -31,7 +49,6 @@
   <div class="header">
     <h1>📊 Admin Dashboard</h1>
     <div class="header-right">
-      <button class="toggle" onclick="toggleTheme()" id="themeBtn">🌙</button>
       <div class="role">👤 Role: <span>Administrator</span></div>
     </div>
   </div>

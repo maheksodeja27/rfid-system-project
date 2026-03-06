@@ -7,13 +7,29 @@
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <link rel="stylesheet" href="../style.css/audit.css">
 <link rel="stylesheet" href="../style.css/footer.css">
+<link rel="stylesheet" href="../style.css/nav.css">
 </head>
 
 <body>
 
+<!-- Include Navigation -->
+<div id="nav-container"></div>
+
+<!-- Load Navigation -->
+<script>
+  fetch('nav.html')
+    .then(response => response.text())
+    .then(html => {
+      document.getElementById('nav-container').innerHTML = html;
+    })
+    .catch(error => console.error('Error loading navigation:', error));
+</script>
+
+<!-- Load Navigation Scripts -->
+<script src="../mini.js/nav.js"></script>
+
 <div class="header">
   <h2>RFID Attendance Audit Dashboard</h2>
-  <button class="toggle" onclick="toggleTheme()" id="themeBtn">🌙</button>
 </div>
 
 <!-- SUMMARY CARDS -->
