@@ -4,6 +4,7 @@
 <meta charset="UTF-8">
 <title>RFID Attendance Audit Dashboard</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700&display=swap" rel="stylesheet">
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <link rel="stylesheet" href="../style.css/audit.css">
 <link rel="stylesheet" href="../style.css/footer.css">
@@ -12,21 +13,58 @@
 
 <body>
 
-<!-- Include Navigation -->
-<div id="nav-container"></div>
+<!-- TOPBAR -->
+<div class="topbar">
+<div class="rfid-btn" onclick="toggleSidebar()">
+<div class="hamburger-menu">
+<span></span>
+<span></span>
+<span></span>
+</div>
+</div>
+</div>
 
-<!-- Load Navigation -->
-<script>
-  fetch('nav.html')
-    .then(response => response.text())
-    .then(html => {
-      document.getElementById('nav-container').innerHTML = html;
-    })
-    .catch(error => console.error('Error loading navigation:', error));
-</script>
+<!-- SIDEBAR -->
+<div class="sidebar" id="sidebar">
+<div class="sidebar-header">
+<h2>RFID Panel</h2>
+<span class="close-btn" onclick="toggleSidebar()">✕</span>
+</div>
 
-<!-- Load Navigation Scripts -->
-<script src="../mini.js/nav.js"></script>
+<!-- SEARCH -->
+<div class="search">
+<input type="text" id="searchInput" placeholder="Search menu..." onkeyup="filterLinks()">
+</div>
+
+<!-- NAV LINKS -->
+<div class="nav-links">
+<a href="dashboard.html">🏠 Dashboard</a>
+<a href="usermanagement.html">👥 User Management</a>
+<a href="resource_admin.html">📦 Resource Admin</a>
+<a href="rfid_system_configuration.html">⚙ System Config</a>
+<a href="report.html">📊 Reports & Export</a>
+<a href="audit.html" class="active">🧾 Audit Logs</a>
+</div>
+
+<!-- LOGOUT BUTTON -->
+<div class="logout-section">
+<button class="logout-btn" onclick="handleLogout()">🚪 Logout</button>
+</div>
+
+<!-- PROFILE -->
+<div class="profile">
+<img src="https://i.pravatar.cc/100">
+<div class="profile-info">
+<div>Admin</div>
+<div style="font-size:13px;opacity:0.7;">System Manager</div>
+</div>
+</div>
+
+<button class="toggle" onclick="toggleTheme()">Toggle Theme</button>
+</div>
+
+<!-- PAGE CONTENT -->
+<div class="content">
 
 <div class="header">
   <h2>RFID Attendance Audit Dashboard</h2>
