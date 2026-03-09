@@ -83,9 +83,10 @@ function handleLogout() {
         // Clear login data
         localStorage.removeItem('currentUser');
         localStorage.removeItem('isLoggedIn');
+        localStorage.removeItem('currentAdmin');
         sessionStorage.clear();
         
-        // Redirect to login page
-        window.location.href = 'login.html';
+        // Redirect to user registration page (login)
+        window.location.href = '../mini.html/userregister.html';
     }
 }
