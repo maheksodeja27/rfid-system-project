@@ -178,7 +178,36 @@ Yes, you can download your attendance report from the Reports section in the das
 </div>
 
 <!-- FOOTER -->
-<div id="footer-container"></div>
+<footer class="srfid-footer" aria-label="Site footer">
+  <div class="srfid-footer-container" style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:0;align-items:start;padding-left:24px;margin-left:0;width:100%;max-width:none;">
+    <div class="srfid-footer-col srfid-footer-left" style="justify-self:start;margin-left:0;padding-left:0;">
+      <h3><span class="footer-icon">🏢</span> <span class="footer-brand">SmartRFID Technologies Pvt. Ltd.</span></h3>
+      <div class="footer-muted">🔒 Secure & Intelligent Attendance Solutions</div>
+      <div class="footer-section-title">📞 Contact & Support</div>
+      <div class="footer-contact-row"><span class="footer-icon">✉️</span> support@smartrfid.com</div>
+      <div class="footer-contact-row"><span class="footer-icon">📱</span> +91-99999 99999</div>
+      <div class="footer-contact-row"><span class="footer-icon">⏰</span> Mon–Sat | 9:00 AM – 6:00 PM</div>
+      <div class="footer-contact-row">
+        
+      </div>
+    </div>
+    <div class="srfid-footer-col srfid-footer-center" style="justify-self:center;">
+      <div class="footer-section-title">🔗 Quick Navigation</div>
+      <ul class="footer-nav-list">
+        <li><span class="footer-dot"></span> <span class="footer-icon">📊</span> <a href="userdashboard.html">Dashboard</a></li>
+        <li><span class="footer-dot"></span> <span class="footer-icon">👤</span> <a href="userprofile.html">Profile</a></li>
+        <li><span class="footer-dot"></span> <span class="footer-icon">🆘</span> <a href="userhelp.html">Help Support</a></li>
+      </ul>
+    </div>
+    <div class="srfid-footer-col srfid-footer-right" style="justify-self:end;margin-right:0;padding-right:0;width:100%;">
+      <div class="footer-section-title">🛰️ System Info</div>
+      <div class="footer-info-row">Version: <b>2.3.1</b> <span class="footer-small">(Last updated 2026-02-15)</span></div>
+      <div class="footer-info-row">Server: <span class="footer-status">Operational</span></div>
+      <div class="footer-info-row">Current Time: <span id="footerTime" class="footer-small"></span></div>
+      </div>
+    </div>
+  </div>
+</footer>
 
 <script src="js/nav.js"></script>
 <script src="js/help.js"></script>
@@ -211,20 +240,15 @@ function loadFooterBasedOnRole() {
     const adminData = localStorage.getItem('currentAdmin');
     const userData = localStorage.getItem('currentUser');
     
-    let footerFile = 'userfooter.html'; // default to user footer
+    let footerFile = 'userfooter.html'; // default to user footer for userhelp.html
     
     if (adminData) {
-        // Admin is logged in
-        footerFile = 'footer.html';
+        // Admin is logged in - still show user footer for userhelp.html
+        footerFile = 'userfooter.html';
     } else if (userData) {
-        // User is logged in
+        // User is logged in - show user footer
         const currentUser = JSON.parse(userData);
-        // Check if user has admin role
-        if (currentUser.role && currentUser.role.toLowerCase().includes('admin')) {
-            footerFile = 'footer.html';
-        } else {
-            footerFile = 'userfooter.html';
-        }
+        footerFile = 'userfooter.html';
     }
     
     // Load the appropriate footer
